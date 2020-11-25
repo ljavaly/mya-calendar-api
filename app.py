@@ -43,6 +43,7 @@ def events_view():
         db.session.add(new_event)
         db.session.commit()
         return jsonify({
+            'id': new_event.id,
             'date': new_event.date,
             'name': new_event.name
         })
@@ -54,6 +55,7 @@ def events_view():
         response = []
         for event in events:
             response.append({
+                'id': event.id,
                 'date': event.date,
                 'name': event.name
             })
